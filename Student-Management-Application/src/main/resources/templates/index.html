@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Registration</h2>
+
+        <p th:text="${smsg}" class="success"></p>
+        <p th:text="${emsg}" class="error"></p>
+
+        <form action="saveStudent" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" required /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required /></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="number" name="phno" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Save Student" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <br>
+        <div style="text-align:center;">
+            <a href="getData">View All Students</a>
+        </div>
+    </div>
+</body>
+</html>
