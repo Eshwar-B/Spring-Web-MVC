@@ -1,5 +1,10 @@
 package in.ashokit.entity;
 
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +20,10 @@ public class Student {
 	private String email;
 	private Long phno;
 
+	@CreationTimestamp
+	private LocalDate createdDate;
+	@UpdateTimestamp
+	private LocalDate updatedDate;
 	
 	public void setSid(Integer sid) {
 		this.sid = sid;
