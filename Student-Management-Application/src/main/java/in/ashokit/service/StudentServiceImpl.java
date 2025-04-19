@@ -31,4 +31,9 @@ public class StudentServiceImpl implements StudentService{
 		return students;
 	}
 
+	@Override
+	public void deleteStudent(Integer sid) {
+		repo.deleteById(sid);
+	}
+
 }

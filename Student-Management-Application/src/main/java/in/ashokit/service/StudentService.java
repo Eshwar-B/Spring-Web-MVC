@@ -11,4 +11,7 @@ public interface StudentService
 	
 	//to get all the students from the database table
 	public List<Student> getAllStudents();
+	
+	// to delete students from table
+	public void deleteStudent(Integer sid);
 }

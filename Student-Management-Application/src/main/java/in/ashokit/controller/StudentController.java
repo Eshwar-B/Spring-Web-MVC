@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.ashokit.entity.Student;
@@ -61,6 +62,20 @@ public class StudentController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("students", allStudents);
+		mav.setViewName("data");
+		
+		return mav;
+	}
+	
+	@GetMapping("/delete")
+	public ModelAndView deleteStudent(@RequestParam("sid") Integer sid)
+	{
+		service.deleteStudent(sid);
+		
+		List<Student> allStudents = service.getAllStudents();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("students", allStudents);
+		mav.addObject("dmsg","Student Deleted Successfully");
 		mav.setViewName("data");
 		
 		return mav;
