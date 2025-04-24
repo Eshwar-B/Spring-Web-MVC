@@ -30,17 +30,7 @@ public class UserController {
 	@PostMapping("/user")
 	public String saveUser(User user, Model model)
 	{
-		boolean allAvailable = true;
-		
-		if(user.getName() == "" || user.getEmail() == "" || user.getPhno() == null || user.getPwd() == "") {
-			model.addAttribute("empty","Fill all the details");
-			allAvailable  = false;
-		}
-		
-		boolean isSaved = false;
-		if(allAvailable) {		
-			isSaved = userService.saveUser(user);
-		}
+		boolean isSaved = userService.saveUser(user);
 		
 		if(isSaved) {
 			model.addAttribute("smsg","User saved");
